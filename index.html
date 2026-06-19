@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liberty School — Школа англійської мови</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <span class="logo-icon">🇬🇧</span>
+            <div class="logo-text">
+                <h1>Liberty</h1>
+                <p>Language School</p>
+            </div>
+        </div>
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-tab="home">Головна</button>
+            <button class="nav-btn" data-tab="cards">Картки</button>
+            <button class="nav-btn" data-tab="quiz">Тестування</button>
+            <button class="nav-btn" data-tab="dictionary">Словник</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <section id="home-tab" class="tab-content active">
+            <div class="hero-section">
+                <div class="hero-text">
+                    <h2>Твій впевнений старт в англійській мові</h2>
+                    <p>Руйнуємо мовні бар'єри за допомогою інтерактивних методик. Навчаємо розмовній англійській для життя, кар'єри та подорожей.</p>
+                    <button class="cta-btn" onclick="document.querySelector('[data-tab=\'cards\']').click()">Спробувати безкоштовний тренажер</button>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h3>Наші навчальні курси</h3>
+                <p>Обери свій ідеальний формат навчання</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-badge">Популярно</div>
+                    <h4>General English</h4>
+                    <p>Розвиток усіх чотирьох мовних навичок: розмова, сприйняття на слух, читання та письмо. Рівні від A1 до C1.</p>
+                    <span class="course-price">від 1 500 грн/міс</span>
+                </div>
+                <div class="course-card">
+                    <h4>English for IT & Business</h4>
+                    <p>Курс для професіоналів. Підготовка до співбесід, ведення переговорів, ділової переписки та презентацій.</p>
+                    <span class="course-price">від 2 200 грн/міс</span>
+                </div>
+                <div class="course-card">
+                    <h4>Підготовка до НМТ / IELTS</h4>
+                    <p>Інтенсивний розбір тестових завдань, лайфхаки для успішної здачі іспитів та психологічна підготовка.</p>
+                    <span class="course-price">від 1 800 грн/міс</span>
+                </div>
+            </div>
+
+            <div class="features-block">
+                <div class="feature-item">
+                    <span class="feature-icon">👩‍🏫</span>
+                    <h5>Сертифіковані викладачі</h5>
+                    <p>Досвідчені філологи та носії мови (Native Speakers).</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💻</span>
+                    <h5>Власна платформa</h5>
+                    <p>Безкоштовний онлайн-тренажер слів доступний усім студентам 24/7.</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">👥</span>
+                    <h5>Мікрогрупи</h5>
+                    <p>Заняття в групах по 4-6 осіб для максимального приділення уваги кожному.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cards-tab" class="tab-content">
+            <div class="trainer-header">
+                <h2>Інтерактивні флеш-картки</h2>
+                <p>Натисни на картку, щоб дізнатися переклад</p>
+            </div>
+            
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="badge" id="card-cat">Частина мови</span>
+                            <h3 id="card-eng">Word</h3>
+                            <p class="transcription" id="card-trans">[transcription]</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <h3 id="card-ukr">Переклад</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="action-btn danger" id="btn-not-learned">❌ Ще вчу</button>
+                <button class="action-btn success" id="btn-learned">⭐ Знаю слово</button>
+            </div>
+        </section>
+
+        <section id="quiz-tab" class="tab-content">
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2>Експрес-тест словникового запасу</h2>
+                    <span class="quiz-progress" id="quiz-count">Питання: 1/10</span>
+                </div>
+                
+                <div class="quiz-card">
+                    <h3 id="quiz-question">Завантаження питання...</h3>
+                    <div class="options" id="quiz-options">
+                        </div>
+                </div>
+
+                <div id="quiz-feedback" class="quiz-feedback hidden"></div>
+                <button class="cta-btn hidden" id="btn-next-quiz">Наступне питання ➡️</button>
+            </div>
+        </section>
+
+        <section id="dictionary-tab" class="tab-content">
+            <div class="dict-header">
+                <h2>Персональний словник студента</h2>
+                <div class="search-box">
+                    <input type="text" id="dict-search" placeholder="Пошук слова за англійським або українським значенням...">
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <span>Прогрес вивчення слів на платформі:</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="prog-fill" style="width: 0%;"></div>
+                </div>
+                <span id="prog-text" class="progress-text">0/0</span>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="dict-table">
+                    <thead>
+                        <tr>
+                            <th>Слово</th>
+                            <th>Транскрипція</th>
+                            <th>Переклад</th>
+                            <th>Категорія</th>
+                            <th>Статус</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dict-tbody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; Михайлик Вероніка. Всі права захищено.</p>
+    </footer>
+
+    <script src="./words.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
